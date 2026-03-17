@@ -45,9 +45,9 @@ import torch
 
 # ------------------------------ USER SETTINGS ---------------------------------
 PATIENTS = [
-    ("BOUCHER", "BOUCHER Amelie"),
-    ("CAILLET", "CAILLET Daniel"),
-    ("GRONIER", "GRONIER Michel"),
+    ("EASY-CASE", "PATIENT-ID-EASY"),
+    ("MEDIUM-CASE", "PATIENT-ID-MEDIUM"),
+    ("HARD-CASE", "PATIENT-ID-HARD"),
 ]
 
 DATA_ROOT = Path("/media/rodriguez/easystore/patients_abstract")
