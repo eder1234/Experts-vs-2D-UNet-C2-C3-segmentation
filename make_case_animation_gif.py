@@ -12,13 +12,13 @@ Frames:
   - one GIF frame per cardiac frame (1..32)
 
 Patient selection:
-  - via terminal argument --patient {BOUCHER,CAILLET,GRONIER}
-  - default = GRONIER
+  - via terminal argument --patient {PATIENT-ID,PATIENT-ID,PATIENT-ID}
+  - default = PATIENT-ID
 
 Anonymous labeling:
-  - BOUCHER -> Easy case
-  - CAILLET -> Medium case
-  - GRONIER -> Hard case
+  - PATIENT-ID -> Easy case
+  - PATIENT-ID -> Medium case
+  - PATIENT-ID -> Hard case
 """
 
 from __future__ import annotations
@@ -50,9 +50,9 @@ DESC_REGEX_STRICT = re.compile(r"^\s*PCV\s*5\s*CervLCS\s*$", re.IGNORECASE)
 DESC_REGEX_FALLBACK = re.compile(r"cervlcs", re.IGNORECASE)
 
 PATIENT_MAP = {
-    "BOUCHER": ("BOUCHER Amelie", "Easy case"),
-    "CAILLET": ("CAILLET Daniel", "Medium case"),
-    "GRONIER": ("GRONIER Michel", "Hard case"),
+    "PATIENT-ID": ("PATIENT-ID ", "Easy case"),
+    "PATIENT-ID": ("PATIENT-ID ", "Medium case"),
+    "PATIENT-ID": ("PATIENT-ID ", "Hard case"),
 }
 
 from preprocess_dicom import (
@@ -429,7 +429,7 @@ def _render_frame(
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--patient", type=str, default="GRONIER", choices=["BOUCHER", "CAILLET", "GRONIER"])
+    parser.add_argument("--patient", type=str, default="PATIENT-ID", choices=["PATIENT-ID", "PATIENT-ID", "PATIENT-ID"])
     parser.add_argument("--fps", type=float, default=4.0)
     parser.add_argument("--out", type=str, default=None)
     args = parser.parse_args()
