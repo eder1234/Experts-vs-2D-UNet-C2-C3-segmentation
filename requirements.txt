@@ -1,0 +1,6 @@
+numpy
+matplotlib
+PyYAML
+torch
+pydicom
+jupyter
