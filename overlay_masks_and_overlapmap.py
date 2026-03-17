@@ -39,7 +39,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
 # ======== USER SETTINGS (EDIT THESE) =========================================
-DICOMDIR       = Path("/media/rodriguez/easystore/patients_abstract/GRONIER Michel/DICOMDIR")
+DICOMDIR       = Path("/media/rodriguez/easystore/patients_abstract/PATIENT-ID hard-case/DICOMDIR")
 SERIES_NUMBER  = 701  # int, or set to None to list series inventory and exit
 OUTPUT_DIR     = Path("./outputs/overlays")
 
@@ -47,9 +47,9 @@ OUTPUT_DIR     = Path("./outputs/overlays")
 # Provide six ROI .txt files: {rater: (session1_path, session2_path)}
 common_mask_path = '/media/rodriguez/easystore/Traitement_abstract_final/'
 MASK_TXT_PATHS: Dict[str, Tuple[Path, Path]] = {
-    "Exp1":    (Path(common_mask_path+"Kimi1/GRONIER MICHEL/2301301227/Segment/aqueduc.txt"),    Path(common_mask_path+"Kimi2/GRONIER MICHEL/2301301227/Segment/aqueduc.txt")),
-    "Exp2":     (Path(common_mask_path+"Leo1/GRONIER MICHEL/2301301227/Segment/aqueduc.txt"),     Path(common_mask_path+"Leo2/GRONIER MICHEL/2301301227/Segment/aqueduc.txt")),
-    "Exp3": (Path(common_mask_path+"Olivier1/GRONIER MICHEL/2301301227/Segment/aqueduc.txt"), Path(common_mask_path+"Olivier2/GRONIER MICHEL/2301301227/Segment/aqueduc.txt")),
+    "Exp1":    (Path(common_mask_path+"Kimi1/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt"),    Path(common_mask_path+"Kimi2/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt")),
+    "Exp2":     (Path(common_mask_path+"Leo1/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt"),     Path(common_mask_path+"Leo2/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt")),
+    "Exp3": (Path(common_mask_path+"Olivier1/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt"), Path(common_mask_path+"Olivier2/PATIENT-ID hard-case/2301301227/Segment/aqueduc.txt")),
 }
 # If your .txt coordinates are 1-based, set this to True
 ROI_ONE_BASED = False
