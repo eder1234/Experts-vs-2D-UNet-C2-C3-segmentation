@@ -1,0 +1,55 @@
+# Mode selection
+mode: auto    # manual | auto
+
+# Common fields
+common:
+  sample_id: model-GRONIER   # used to label outputs
+
+# DICOMDIR and outputs
+paths:
+  dicomdir: /media/rodriguez/easystore/patients_abstract/GRONIER Michel/DICOMDIR
+  output_dir: outputs/abstract
+  output_csv: abstract_biomarkers.csv
+
+# Series selection policy (applies to both modes)
+series_selection:
+  # IMPORTANT CHANGE:
+  # If null, the script will PRINT the valid series inventory and EXIT (no auto-pick).
+  series_number: null
+  # Optional regex filter for the inventory listing (for readability)
+  desc_filter_regex: "PCV 5CervLCS|PCV 10CervLCS|PCV20 acqueduc"
+
+# Biomarker column names + numeric knobs
+# NOTE: net_flow has been REPLACED by roi_area_mm2
+biomarkers:
+  roi_area_name: roi_area_mm2               # replaces previous net_flow column
+  flow_amplitude_name: flow_amp_mm3_per_s
+  stroke_volume_name: stroke_vol_unsigned_mm3
+  interpolate_n: 3201
+
+# Fallbacks for missing tags (used only if tags are absent)
+fallbacks:
+  pixel_size_mm: 0.5
+  delay_trigger_ms: 650.0
+  v_enc: 5.0
+
+# MANUAL-mode specifics
+manual:
+  mask_txt: /home/rodriguez/Documents/mri/Traitement_abstract_final/Leo1/GRONIER MICHEL/2301301227/Segment/aqueduc.txt
+  roi_one_based: false   # set true if the text mask indices are 1-based
+
+# AUTO-mode model config (ignored in manual mode)
+model:
+  checkpoint: outputs/unet2d_full_c80_b32_flow_dice/checkpoints/best_model.pt
+  input_mode: full          # full | dft_k123 | pca | std | dft_power | tvt
+  base_channels: 32
+  threshold: 0.5
+  device: cuda              # cuda | cpu
+  crop_size: 80             # crop size used by model
+  full_size: 240            # full image size to pad back into
+
+# Output artefacts
+outputs:
+  save_overlays: true
+  save_flow_plot: true       # NEW: save flow curve image
+  flow_plot_ext: png         # png | jpg | jpeg
