@@ -1,6 +1,6 @@
 # Experts-vs-2D-UNet-C2-C3-segmentation
 
-![CSF Flow Animation](hard_anonymus.gif)
+![CSF Flow Animation](hard_anonymous.gif)
 
 **Project Title:** Deep Learning vs. Manual Segmentation for Spinal CSF Flow in PC-MRI  
 **Event:** Accepted for Oral Presentation at ISRMR 2026  
