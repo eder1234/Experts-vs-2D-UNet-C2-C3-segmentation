@@ -3,11 +3,11 @@ mode: auto    # manual | auto
 
 # Common fields
 common:
-  sample_id: model-GRONIER   # used to label outputs
+  sample_id: model-PATIENT-ID   # used to label outputs
 
 # DICOMDIR and outputs
 paths:
-  dicomdir: /media/rodriguez/easystore/patients_abstract/GRONIER Michel/DICOMDIR
+  dicomdir: /media/rodriguez/easystore/patients_abstract/PATIENT-ID/DICOMDIR
   output_dir: outputs/abstract
   output_csv: abstract_biomarkers.csv
 
@@ -35,7 +35,7 @@ fallbacks:
 
 # MANUAL-mode specifics
 manual:
-  mask_txt: /home/rodriguez/Documents/mri/Traitement_abstract_final/Leo1/GRONIER MICHEL/2301301227/Segment/aqueduc.txt
+  mask_txt: /home/rodriguez/Documents/mri/Traitement_abstract_final/RATER/PATIENT-ID/DATE/Segment/MASK.txt
   roi_one_based: false   # set true if the text mask indices are 1-based
 
 # AUTO-mode model config (ignored in manual mode)
