@@ -45,24 +45,24 @@ import torch
 import time
 
 # =================== USER SETTINGS (EDIT THESE) ==============================
-DICOMDIR       = Path("/media/rodriguez/easystore/patients_abstract/CAILLET Daniel/DICOMDIR")
+DICOMDIR       = Path("/media/rodriguez/easystore/patients_abstract/PATIENT-ID/DICOMDIR")
 SERIES_NUMBER  = 701                     # int, or set to None to print inventory and exit
 OUTPUT_DIR     = Path("./outputs/overlays")
 
 # ---- Expert masks (anonymous labels: Exp1, Exp2, Exp3) ----------------------
 common_mask_path = "/media/rodriguez/easystore/Traitement_abstract_final/"
 MASK_TXT_PATHS_EXPERTS: Dict[str, Tuple[Path, Path]] = {
-    "Exp1": (Path(common_mask_path + "Kimi1/CAILLET DANIEL/2306261121/Segment/aqueduc.txt"),
-             Path(common_mask_path + "Kimi2/CAILLET DANIEL/2306261121/Segment/aqueduc.txt")),
-    "Exp2": (Path(common_mask_path + "Leo1/CAILLET DANIEL/2306261121/Segment/aqueduc.txt"),
-             Path(common_mask_path + "Leo2/CAILLET DANIEL/2306261121/Segment/aqueduc.txt")),
-    "Exp3": (Path(common_mask_path + "Olivier1/CAILLET DANIEL/2306261121/Segment/aqueduc.txt"),
-             Path(common_mask_path + "Olivier2/CAILLET DANIEL/2306261121/Segment/aqueduc.txt")),
+    "Exp1": (Path(common_mask_path + "Kimi1/PATIENT-ID/2306261121/Segment/aqueduc.txt"),
+             Path(common_mask_path + "Kimi2/PATIENT-ID/2306261121/Segment/aqueduc.txt")),
+    "Exp2": (Path(common_mask_path + "Leo1/PATIENT-ID/2306261121/Segment/aqueduc.txt"),
+             Path(common_mask_path + "Leo2/PATIENT-ID/2306261121/Segment/aqueduc.txt")),
+    "Exp3": (Path(common_mask_path + "Olivier1/PATIENT-ID/2306261121/Segment/aqueduc.txt"),
+             Path(common_mask_path + "Olivier2/PATIENT-ID/2306261121/Segment/aqueduc.txt")),
 }
 
 # ---- Novice (Eder) masks (anonymous in figure: "Novice") --------------------
-EDER1_TXT = Path(common_mask_path + "Eder1/CAILLET DANIEL/2306261121/Segment/aqueduc.txt")
-EDER2_TXT = Path(common_mask_path + "Eder2/CAILLET DANIEL/2306261121/Segment/aqueduc.txt")
+EDER1_TXT = Path(common_mask_path + "Eder1/PATIENT-ID/2306261121/Segment/aqueduc.txt")
+EDER2_TXT = Path(common_mask_path + "Eder2/PATIENT-ID/2306261121/Segment/aqueduc.txt")
 
 # Are ROI indices 1-based in the .txt files?
 ROI_ONE_BASED = False
